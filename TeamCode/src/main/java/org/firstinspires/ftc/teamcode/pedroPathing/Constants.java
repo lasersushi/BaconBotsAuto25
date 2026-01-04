@@ -28,6 +28,8 @@ public class Constants {
     }
     public static MecanumConstants driveConstants = new MecanumConstants()
             .maxPower(1)
+            .xVelocity(86.99442098278391)
+            .yVelocity(26.760917660432078)
             .rightFrontMotorName("RightFront")
             .rightRearMotorName("RightBack")
             .leftRearMotorName("LeftBack")
@@ -37,17 +39,17 @@ public class Constants {
             .rightFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
             .rightRearMotorDirection(DcMotorSimple.Direction.FORWARD);
     public static DriveEncoderConstants localizerConstants = new DriveEncoderConstants()
-            .forwardTicksToInches(-5.4959)
-            .strafeTicksToInches(1)
-            .turnTicksToInches(1)
+            .forwardTicksToInches(0.006656430078193553)
+            .strafeTicksToInches(0.027412195527067116)
+            .turnTicksToInches(0.013294436520262299)
             .robotWidth(17)
             .robotLength(17)
             .rightFrontMotorName("RightFront")
             .rightRearMotorName("RightBack")
             .leftRearMotorName("LeftBack")
             .leftFrontMotorName("LeftFront")
-            .leftFrontEncoderDirection(Encoder.FORWARD)
-            .leftRearEncoderDirection(Encoder.FORWARD)
+            .leftFrontEncoderDirection(Encoder.REVERSE)
+            .leftRearEncoderDirection(Encoder.REVERSE)
             .rightFrontEncoderDirection(Encoder.FORWARD)
             .rightRearEncoderDirection(Encoder.FORWARD);
 }

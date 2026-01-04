@@ -23,6 +23,7 @@ import com.pedropathing.telemetry.SelectableOpMode;
 import com.pedropathing.util.*;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +131,8 @@ public class Tuning extends SelectableOpMode {
 class LocalizationTest extends OpMode {
     @Override
     public void init() {
-        follower.setStartingPose(new Pose(21.721716514954487,121.71651495448634));
+        //follower.setStartingPose(new Pose(22,122,Math.toRadians(143)));
+        follower.setStartingPose(new Pose(72,72));
     }
 
     /** This initializes the PoseUpdater, the mecanum drive motors, and the Panels telemetry. */
@@ -158,6 +160,15 @@ class LocalizationTest extends OpMode {
         follower.setTeleOpDrive(-gamepad1.left_stick_y, -gamepad1.left_stick_x, -gamepad1.right_stick_x, true);
         follower.update();
 
+        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+
+        telemetryM.debug("FL Ticks", fl);
+        telemetryM.debug("BL Ticks", bl);
+        telemetryM.debug("FR Ticks", fr);
+        telemetryM.debug("BR Ticks", br);
         telemetryM.debug("x:" + follower.getPose().getX());
         telemetryM.debug("y:" + follower.getPose().getY());
         telemetryM.debug("heading:" + follower.getPose().getHeading());
@@ -194,6 +205,7 @@ class ForwardTuner extends OpMode {
     /** This initializes the PoseUpdater as well as the Panels telemetry. */
     @Override
     public void init_loop() {
+
         telemetryM.debug("Pull your robot forward " + DISTANCE + " inches. Your forward ticks to inches will be shown on the telemetry.");
         telemetryM.update(telemetry);
         drawOnlyCurrent();
@@ -207,6 +219,15 @@ class ForwardTuner extends OpMode {
     public void loop() {
         follower.update();
 
+        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+
+        telemetryM.debug("FL Ticks", fl);
+        telemetryM.debug("BL Ticks", bl);
+        telemetryM.debug("FR Ticks", fr);
+        telemetryM.debug("BR Ticks", br);
         telemetryM.debug("Distance Moved: " + follower.getPose().getX());
         telemetryM.debug("The multiplier will display what your forward ticks to inches should be to scale your current distance to " + DISTANCE + " inches.");
         telemetryM.debug("Multiplier: " + (DISTANCE / ((follower.getPose().getX() - 72) / follower.getPoseTracker().getLocalizer().getForwardMultiplier())));
@@ -906,7 +927,7 @@ class DriveTuner extends OpMode {
     public void start() {
         follower.deactivateAllPIDFs();
         follower.activateDrive();
-        
+
         forwards = follower.pathBuilder()
                 .setGlobalDeceleration()
                 .addPath(new BezierLine(new Pose(72,72), new Pose(DISTANCE + 72,72)))
