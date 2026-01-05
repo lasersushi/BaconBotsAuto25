@@ -40,7 +40,7 @@ public class Constants {
             .rightRearMotorDirection(DcMotorSimple.Direction.FORWARD);
     public static DriveEncoderConstants localizerConstants = new DriveEncoderConstants()
             .forwardTicksToInches(0.006656430078193553)
-            .strafeTicksToInches(0.027412195527067116)
+            .strafeTicksToInches(-0.027412195527067116)
             .turnTicksToInches(0.013294436520262299)
             .robotWidth(17)
             .robotLength(17)
