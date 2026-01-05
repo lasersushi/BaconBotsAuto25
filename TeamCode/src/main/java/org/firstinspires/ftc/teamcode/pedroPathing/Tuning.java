@@ -165,6 +165,7 @@ class LocalizationTest extends OpMode {
         double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
         double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
+        telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
         telemetryM.debug("BL Ticks", bl);
         telemetryM.debug("FR Ticks", fr);
@@ -224,6 +225,7 @@ class ForwardTuner extends OpMode {
         double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
         double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
+        telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
         telemetryM.debug("BL Ticks", bl);
         telemetryM.debug("FR Ticks", fr);
@@ -276,6 +278,16 @@ class LateralTuner extends OpMode {
     public void loop() {
         follower.update();
 
+        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+
+        telemetryM.debug("This is just updating ticks for debugging purposes");
+        telemetryM.debug("FL Ticks", fl);
+        telemetryM.debug("BL Ticks", bl);
+        telemetryM.debug("FR Ticks", fr);
+        telemetryM.debug("BR Ticks", br);
         telemetryM.debug("Distance Moved: " + follower.getPose().getY());
         telemetryM.debug("The multiplier will display what your strafe ticks to inches should be to scale your current distance to " + DISTANCE + " inches.");
         telemetryM.debug("Multiplier: " + (DISTANCE / ((follower.getPose().getY() - 72) / follower.getPoseTracker().getLocalizer().getLateralMultiplier())));
@@ -325,6 +337,16 @@ class TurnTuner extends OpMode {
     public void loop() {
         follower.update();
 
+        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+
+        telemetryM.debug("This is just updating ticks for debugging purposes");
+        telemetryM.debug("FL Ticks", fl);
+        telemetryM.debug("BL Ticks", bl);
+        telemetryM.debug("FR Ticks", fr);
+        telemetryM.debug("BR Ticks", br);
         telemetryM.debug("Total Angle: " + follower.getTotalHeading());
         telemetryM.debug("The multiplier will display what your turn ticks to inches should be to scale your current angle to " + ANGLE + " radians.");
         telemetryM.debug("Multiplier: " + (ANGLE / (follower.getTotalHeading() / follower.getPoseTracker().getLocalizer().getTurningMultiplier())));
