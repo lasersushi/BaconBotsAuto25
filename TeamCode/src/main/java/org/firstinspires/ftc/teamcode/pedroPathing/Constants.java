@@ -42,8 +42,6 @@ public class Constants {
             .forwardTicksToInches(0.006656430078193553)
             .strafeTicksToInches(0.09409759998982468)
             .turnTicksToInches(0.012308574479837288)
-            //.turnTicksToInches(0.006656430078193553)
-            //.turnTicksToInches(0.013298574479837288)
             .robotWidth(17)
             .robotLength(17)
             .rightFrontMotorName("RightFront")
