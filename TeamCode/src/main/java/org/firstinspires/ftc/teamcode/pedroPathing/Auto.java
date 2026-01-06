@@ -26,12 +26,13 @@ public class Auto extends OpMode {
     private DcMotorEx IntakeMotor2;
 
     // Poses
-    private final Pose startPose = new Pose(22, 122, Math.toRadians(143));
-    private final Pose scorePose = new Pose(48, 96, Math.toRadians(143));
-    private final Pose pickup1Pose = new Pose(32, 84, Math.toRadians(0));
-    private final Pose pickup2Pose = new Pose(32, 60, Math.toRadians(0));
-    private final Pose pickup3Pose = new Pose(32, 36, Math.toRadians(0));
-    private final Pose endPose = new Pose(48, 12, Math.toRadians(0));
+    public Pose startPose = new Pose(22, 122, Math.toRadians(143));
+    public Pose scorePose = new Pose(48, 96, Math.toRadians(143));
+    public Pose scorePControl = new Pose(80,72);
+    public Pose pickup1Pose = new Pose(32, 84, Math.toRadians(0));
+    public Pose pickup2Pose = new Pose(32, 60, Math.toRadians(0));
+    public Pose pickup3Pose = new Pose(32, 36, Math.toRadians(0));
+    public Pose endPose = new Pose(48, 12, Math.toRadians(0));
 
     // Paths
     private Path scorePreload;
