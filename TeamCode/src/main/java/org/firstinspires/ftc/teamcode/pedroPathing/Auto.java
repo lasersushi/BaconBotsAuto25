@@ -58,7 +58,7 @@ public class Auto extends OpMode {
                 .addPath(new BezierCurve(pickup1PoseP2, scorePose))
                 .setLinearHeadingInterpolation(pickup1Pose.getHeading(), scorePose.getHeading())
                 .build();
-
+        
         // Cycle 2 Paths
         grabPickup2 = follower.pathBuilder()
                 .addPath(new BezierCurve(scorePose, pickup2Pose))
