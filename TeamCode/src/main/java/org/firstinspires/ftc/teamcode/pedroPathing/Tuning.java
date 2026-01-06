@@ -655,6 +655,16 @@ class ForwardZeroPowerAccelerationTuner extends OpMode {
             }
             average /= accelerations.size();
 
+            double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+            double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+            double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+            double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+
+            telemetryM.debug("This is just updating ticks for debugging purposes");
+            telemetryM.debug("FL Ticks", fl);
+            telemetryM.debug("BL Ticks", bl);
+            telemetryM.debug("FR Ticks", fr);
+            telemetryM.debug("BR Ticks", br);
             telemetryM.debug("Forward Zero Power Acceleration (Deceleration): " + average);
             telemetryM.debug("\n");
             telemetryM.debug("Press A to set the Forward Zero Power Acceleration temporarily (while robot remains on).");
