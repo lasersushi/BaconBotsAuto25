@@ -48,8 +48,8 @@ public class Constants {
             .rightRearMotorName("RightBack")
             .leftRearMotorName("LeftBack")
             .leftFrontMotorName("LeftFront")
-            .leftFrontEncoderDirection(Encoder.REVERSE)
-            .leftRearEncoderDirection(Encoder.REVERSE)
+            .leftFrontEncoderDirection(Encoder.FORWARD)
+            .leftRearEncoderDirection(Encoder.FORWARD)
             .rightFrontEncoderDirection(Encoder.FORWARD)
             .rightRearEncoderDirection(Encoder.FORWARD);
 }

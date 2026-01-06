@@ -162,8 +162,8 @@ class LocalizationTest extends OpMode {
 
         double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
         double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
-        double br = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
-        double fr = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
         telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
@@ -222,8 +222,8 @@ class ForwardTuner extends OpMode {
 
         double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
         double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
-        double br = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
-        double fr = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
         telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
@@ -280,8 +280,8 @@ class LateralTuner extends OpMode {
 
         double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
         double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
-        double br = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
-        double fr = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
         telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
@@ -339,8 +339,8 @@ class TurnTuner extends OpMode {
 
         double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
         double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
-        double br = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
-        double fr = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
 
         telemetryM.debug("This is just updating ticks for debugging purposes");
         telemetryM.debug("FL Ticks", fl);
