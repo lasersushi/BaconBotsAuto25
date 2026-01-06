@@ -21,22 +21,28 @@ public class Auto extends OpMode {
     private int pathState;
 
     // Motors
-    private DcMotorEx ShooterMotor;
-    private DcMotorEx IntakeMotor1;
-    private DcMotorEx IntakeMotor2;
+    //private DcMotorEx ShooterMotor;
+    //private DcMotorEx IntakeMotor1;
+    //private DcMotorEx IntakeMotor2;
 
     // Poses
     public Pose startPose = new Pose(22, 122, Math.toRadians(143));
     public Pose scorePose = new Pose(48, 96, Math.toRadians(143));
     public Pose scorePControl = new Pose(80,72);
-    public Pose pickup1Pose = new Pose(32, 84, Math.toRadians(0));
-    public Pose pickup2Pose = new Pose(32, 60, Math.toRadians(0));
-    public Pose pickup3Pose = new Pose(32, 36, Math.toRadians(0));
+    public Pose pickup1Pose = new Pose(42,36, Math.toRadians(0));
+    public Pose pickup1PoseP2 = new Pose(32,36);
+    public Pose pickup2Pose = new Pose(48, 60, Math.toRadians(0));
+    public Pose pickup2PoseP2 = new Pose(32,60);
+    public Pose pickup3Pose = new Pose(48, 84, Math.toRadians(0));
+    public Pose pickup3PoseP2 = new Pose(32,84);
+    public Pose pickup3PoseP3 = new Pose(32,72);
+    public Pose pickup3PoseP4 = new Pose(17,72);
+    public Pose pickup3PoseP5 = new Pose(48,72);
     public Pose endPose = new Pose(48, 12, Math.toRadians(0));
 
     // Paths
     private Path scorePreload;
-    private PathChain grabPickup1, scorePickup1, grabPickup2, scorePickup2, grabPickup3, scorePickup3, finalPose1;
+    private PathChain grabPickup1, grabPickup1P2, scorePickup1, grabPickup2, grabPickup2P2,  scorePickup2, grabPickup3, grabPickup3P2, grabPickup3P3, grabPickup3P4, grabPickup3P5, scorePickup3, finalPose1;
 
     public void buildPaths() {
         // Preload Path
@@ -45,7 +51,7 @@ public class Auto extends OpMode {
 
         // Cycle 1 Paths
         grabPickup1 = follower.pathBuilder()
-                .addPath(new BezierCurve(scorePose, pickup1Pose))
+                .addPath(new BezierCurve(scorePose, scorePControl, pickup1Pose))
                 .setLinearHeadingInterpolation(scorePose.getHeading(), pickup1Pose.getHeading())
                 .build();
 
@@ -55,18 +61,23 @@ public class Auto extends OpMode {
                 .build();
 
         scorePickup1 = follower.pathBuilder()
-                .addPath(new BezierCurve(pickup1PoseP2, scorePose))
+                .addPath(new BezierCurve(pickup1PoseP2, scorePControl, scorePose))
                 .setLinearHeadingInterpolation(pickup1Pose.getHeading(), scorePose.getHeading())
                 .build();
-        
+
         // Cycle 2 Paths
         grabPickup2 = follower.pathBuilder()
-                .addPath(new BezierCurve(scorePose, pickup2Pose))
+                .addPath(new BezierCurve(scorePose, scorePControl, pickup2Pose))
                 .setLinearHeadingInterpolation(scorePose.getHeading(), pickup2Pose.getHeading())
                 .build();
 
+        grabPickup2P2 = follower.pathBuilder()
+                .addPath(new BezierLine(pickup2Pose, pickup2PoseP2))
+                .setLinearHeadingInterpolation(pickup2Pose.getHeading(), pickup2PoseP2.getHeading())
+                .build();
+
         scorePickup2 = follower.pathBuilder()
-                .addPath(new BezierCurve(pickup2Pose, scorePose))
+                .addPath(new BezierCurve(pickup2PoseP2, scorePControl, scorePose))
                 .setLinearHeadingInterpolation(pickup2Pose.getHeading(), scorePose.getHeading())
                 .build();
 
@@ -76,8 +87,28 @@ public class Auto extends OpMode {
                 .setLinearHeadingInterpolation(scorePose.getHeading(), pickup3Pose.getHeading())
                 .build();
 
+        grabPickup3P2 = follower.pathBuilder()
+                .addPath(new BezierLine(pickup3Pose, pickup3PoseP2))
+                .setLinearHeadingInterpolation(pickup3Pose.getHeading(), pickup3PoseP2.getHeading())
+                .build();
+
+        grabPickup3P3 = follower.pathBuilder()
+                .addPath(new BezierLine(pickup3PoseP2, pickup3PoseP3))
+                .setLinearHeadingInterpolation(pickup3PoseP2.getHeading(), pickup3PoseP3.getHeading())
+                .build();
+
+        grabPickup3P4 = follower.pathBuilder()
+                .addPath(new BezierLine(pickup3PoseP3, pickup3PoseP4))
+                .setLinearHeadingInterpolation(pickup3PoseP3.getHeading(), pickup3PoseP4.getHeading())
+                .build();
+
+        grabPickup3P5 = follower.pathBuilder()
+                .addPath(new BezierLine(pickup3PoseP4, pickup3PoseP5))
+                .setLinearHeadingInterpolation(pickup3PoseP4.getHeading(), pickup3PoseP5.getHeading())
+                .build();
+
         scorePickup3 = follower.pathBuilder()
-                .addPath(new BezierCurve(pickup3Pose, scorePose))
+                .addPath(new BezierCurve(pickup3PoseP5, scorePControl, scorePose))
                 .setLinearHeadingInterpolation(pickup3Pose.getHeading(), scorePose.getHeading())
                 .build();
 
@@ -97,20 +128,6 @@ public class Auto extends OpMode {
 
             case 1: // Wait until we arrive at Score Pose
                 if(!follower.isBusy()) {
-                    telemetry.addLine("It worked!!!");
-                    ShooterMotor.setPower(.65);
-                    wait(2500);
-                    IntakeMotor2.setPower(.75);
-                    wait(200);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(1);
-                    wait(150);
-                    ShooterMotor.setPower(.65);
-                    IntakeMotor2.setPower(1);
-                    wait(1);
-                    IntakeMotor2.setPower(.65);
-                    ShooterMotor.setPower(-0.075);
-                    IntakeMotor1.setPower(1);
                     follower.followPath(grabPickup1);
                     setPathState(2);
                 }
@@ -124,19 +141,6 @@ public class Auto extends OpMode {
             case 3: // Scoring Pickup 1
                 if(!follower.isBusy()) {
                     telemetry.addLine("It worked again!!!");
-                    ShooterMotor.setPower(.65);
-                    wait(2500);
-                    IntakeMotor2.setPower(.75);
-                    wait(200);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(1);
-                    wait(150);
-                    ShooterMotor.setPower(.65);
-                    IntakeMotor2.setPower(1);
-                    wait(1);
-                    IntakeMotor2.setPower(.65);
-                    ShooterMotor.setPower(-0.075);
-                    IntakeMotor1.setPower(1);
                     follower.followPath(grabPickup2);
                     setPathState(4);
                 }
@@ -151,19 +155,6 @@ public class Auto extends OpMode {
 
             case 5: // ACTION: Grab pickup 2
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.65);
-                    wait(2500);
-                    IntakeMotor2.setPower(.75);
-                    wait(200);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(1);
-                    wait(150);
-                    ShooterMotor.setPower(.65);
-                    IntakeMotor2.setPower(1);
-                    wait(1);
-                    IntakeMotor2.setPower(.65);
-                    ShooterMotor.setPower(-0.075);
-                    IntakeMotor1.setPower(1);
                     follower.followPath(grabPickup3);
                     setPathState(6);
                 }
@@ -178,17 +169,6 @@ public class Auto extends OpMode {
 
             case 7: // ACTION: Score Pickup 3
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.65);
-                    IntakeMotor2.setPower(.75);
-                    wait(200);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(1);
-                    ShooterMotor.setPower(.65);
-                    IntakeMotor2.setPower(1);
-                    wait(1);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(0);
-                    IntakeMotor1.setPower(0);
                     follower.followPath(finalPose1);
                     setPathState(8);
                 }
@@ -223,9 +203,9 @@ public class Auto extends OpMode {
         opmodeTimer.resetTimer();
 
         // Hardware Map
-        ShooterMotor = hardwareMap.get(DcMotorEx.class, "ShooterMotor");
-        IntakeMotor1 = hardwareMap.get(DcMotorEx.class, "IntakeMotor1");
-        IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
+        //ShooterMotor = hardwareMap.get(DcMotorEx.class, "ShooterMotor");
+        //IntakeMotor1 = hardwareMap.get(DcMotorEx.class, "IntakeMotor1");
+        //IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(startPose);
