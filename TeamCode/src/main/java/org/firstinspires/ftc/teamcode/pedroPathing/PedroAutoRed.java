@@ -9,12 +9,9 @@ import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
-
-@Autonomous(name = "PedroAuto", group = "Pedro!!!")
-public class Auto extends OpMode {
+@Autonomous(name = "PedroAutoRed", group = "Auto")
+public class PedroAutoRed extends OpMode {
 
     private Follower follower;
     private Timer pathTimer, opmodeTimer;
@@ -118,8 +115,7 @@ public class Auto extends OpMode {
                 .setLinearHeadingInterpolation(scorePose.getHeading(), endPose.getHeading())
                 .build();
     }
-
-    public void statePathUpdate() throws InterruptedException {
+    {
         switch (pathState) {
             case 0: // Drive to Score Preload
                 follower.followPath(scorePreload, true);
@@ -134,7 +130,7 @@ public class Auto extends OpMode {
                 break;
             case 2: //Going to scorepose
                 if (!follower.isBusy()) {
-                    follower.followPath(scorePickup1);
+                    follower.followPath(scorePickup1, true);
                     setPathState(3);
                 }
                 break;
@@ -148,7 +144,7 @@ public class Auto extends OpMode {
 
             case 4:
                 if (!follower.isBusy()) {
-                    follower.followPath(scorePickup2);
+                    follower.followPath(scorePickup2, true);
                     setPathState(5);
                 }
                 break;
@@ -162,15 +158,14 @@ public class Auto extends OpMode {
 
             case 6: // Drive to Score 1
                 if(!follower.isBusy()) {
-                    follower.followPath(scorePickup3);
+                    follower.followPath(scorePickup3, true);
                     setPathState(7);
                 }
                 break;
 
             case 7: // ACTION: Score Pickup 3
                 if (!follower.isBusy()) {
-                    follower.followPath(finalPose1);
-                    setPathState(8);
+                    follower.followPath(finalPose1, true);
                 }
                 break;
         }
