@@ -580,7 +580,7 @@ class LateralVelocityTuner extends OpMode {
  */
 class ForwardZeroPowerAccelerationTuner extends OpMode {
     private final ArrayList<Double> accelerations = new ArrayList<>();
-    public static double VELOCITY = 30;
+    public static double VELOCITY = 10;
 
     private double previousVelocity;
     private long previousTimeNano;
@@ -596,6 +596,7 @@ class ForwardZeroPowerAccelerationTuner extends OpMode {
     /** This initializes the drive motors as well as the Panels telemetryM. */
     @Override
     public void init_loop() {
+
         telemetryM.debug("The robot will run forward until it reaches " + VELOCITY + " inches per second.");
         telemetryM.debug("Then, it will cut power from the drivetrain and roll to a stop.");
         telemetryM.debug("Make sure you have enough room.");
@@ -696,7 +697,7 @@ class ForwardZeroPowerAccelerationTuner extends OpMode {
  */
 class LateralZeroPowerAccelerationTuner extends OpMode {
     private final ArrayList<Double> accelerations = new ArrayList<>();
-    public static double VELOCITY = 30;
+    public static double VELOCITY = 10;
     private double previousVelocity;
     private long previousTimeNano;
     private boolean stopping;
