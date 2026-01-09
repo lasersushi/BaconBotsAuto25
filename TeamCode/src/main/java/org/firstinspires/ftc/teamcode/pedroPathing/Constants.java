@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedroPathing;
 
+import com.pedropathing.control.FilteredPIDFCoefficients;
+import com.pedropathing.control.PIDFCoefficients;
 import com.pedropathing.follower.Follower;
 import com.pedropathing.follower.FollowerConstants;
 import com.pedropathing.ftc.FollowerBuilder;
@@ -12,8 +14,11 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Constants {
     public static FollowerConstants followerConstants = new FollowerConstants()
+            .centripetalScaling(0.0005)
             .translationalPIDFCoefficients(new PIDFCoefficients(.3,0,0.02,0.01))
+            .headingPIDFCoefficients(new PIDFCoefficients(2,0,0.02,0.03))
             .forwardZeroPowerAcceleration(-69.19157938285402)
+            .drivePIDFCoefficients(new FilteredPIDFCoefficients(0.025,0,0.00001,0.6,0.01))
             .lateralZeroPowerAcceleration(-177.59457336921187)
             .mass(13);
 
