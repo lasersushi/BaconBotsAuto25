@@ -125,8 +125,6 @@ public class PedroAutoBlue extends OpMode {
                     .build();
         }
     {
-        Path StartScore = null;
-        PathChain GoPickup1 = null, GrabPickup1 = null, ScorePickup1 = null, GoPickup2 = null, GrabPickup2 = null, ScorePickup2 = null, GoPickup3 = null, GrabPickup3 = null, ScorePickup3 = null, End = null;
 
         switch (pathState) {
             case 0: // Drive to Score Preload
