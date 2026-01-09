@@ -23,19 +23,19 @@ public class PedroAutoRed extends OpMode {
     //private DcMotorEx IntakeMotor2;
 
     // Poses
-    public Pose startPose = new Pose(22, 122, Math.toRadians(143));
-    public Pose scorePose = new Pose(48, 96, Math.toRadians(143));
-    public Pose scorePControl = new Pose(80,72);
-    public Pose pickup1Pose = new Pose(42,36, Math.toRadians(0));
-    public Pose pickup1PoseP2 = new Pose(32,36);
-    public Pose pickup2Pose = new Pose(48, 60, Math.toRadians(0));
-    public Pose pickup2PoseP2 = new Pose(32,60);
-    public Pose pickup3Pose = new Pose(48, 84, Math.toRadians(0));
-    public Pose pickup3PoseP2 = new Pose(32,84);
-    public Pose pickup3PoseP3 = new Pose(32,72);
-    public Pose pickup3PoseP4 = new Pose(17,72);
-    public Pose pickup3PoseP5 = new Pose(48,72);
-    public Pose endPose = new Pose(48, 12, Math.toRadians(0));
+    private final Pose startPose = new Pose(22, 122, Math.toRadians(143));
+    private final Pose scorePose = new Pose(48, 96, Math.toRadians(143));
+    private final Pose scorePControl = new Pose(80,72);
+    private final Pose pickup1Pose = new Pose(42,36, Math.toRadians(0));
+    private final Pose pickup1PoseP2 = new Pose(32,36);
+    private final Pose pickup2Pose = new Pose(48, 60, Math.toRadians(0));
+    private final Pose pickup2PoseP2 = new Pose(32,60);
+    private final Pose pickup3Pose = new Pose(48, 84, Math.toRadians(0));
+    private final Pose pickup3PoseP2 = new Pose(32,84);
+    private final Pose pickup3PoseP3 = new Pose(32,72);
+    private final Pose pickup3PoseP4 = new Pose(17,72);
+    private final Pose pickup3PoseP5 = new Pose(48,72);
+    private final Pose endPose = new Pose(48, 12, Math.toRadians(0));
 
     // Paths
     private Path scorePreload;
