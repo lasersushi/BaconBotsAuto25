@@ -106,7 +106,7 @@ public class PedroAutoBlue extends OpMode {
         GoPickup2 = follower.pathBuilder().addPath(
                         new BezierCurve(
                                 new Pose(46.000, 96.000, 143),
-                                new Pose(42.422, 83.089),
+                                new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000, -87)
                         )
                 ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(46,60).getHeading())
@@ -126,7 +126,7 @@ public class PedroAutoBlue extends OpMode {
         ScorePickup2 = follower.pathBuilder().addPath(
                         new BezierCurve(
                                 new Pose(33.000, 60.000, -180),
-                                new Pose(42.000, 77.075),
+                                new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000, 70)
                         )
                 ).setLinearHeadingInterpolation(new Pose(33,60).getHeading(), new Pose(46,96).getHeading())
@@ -167,7 +167,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000, 143),
 
-                                new Pose(60.000, 130.000, 70)
+                                new Pose(60.000, 135.000, 70)
                         )
                 ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(60,130).getHeading())
 
