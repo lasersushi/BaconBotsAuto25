@@ -11,7 +11,6 @@ import com.pedropathing.ftc.localization.constants.DriveEncoderConstants;
 import com.pedropathing.paths.PathConstraints;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
 public class Constants {
     public static FollowerConstants followerConstants = new FollowerConstants()
             .centripetalScaling(0.0005)
@@ -34,6 +33,7 @@ public class Constants {
                 .build();
     }
     public static MecanumConstants driveConstants = new MecanumConstants()
+            /// We use mecanum wheels
             .maxPower(1)
             .xVelocity(63.30532368457551)
             .yVelocity(58.289006580465318)
@@ -46,6 +46,7 @@ public class Constants {
             .rightFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
             .rightRearMotorDirection(DcMotorSimple.Direction.FORWARD);
     public static DriveEncoderConstants localizerConstants = new DriveEncoderConstants()
+            /// We are using drive encoder localization
             .forwardTicksToInches(0.005745065599227566)
             .strafeTicksToInches(0.005587501772215153)
             .turnTicksToInches(0.013612100193966237)

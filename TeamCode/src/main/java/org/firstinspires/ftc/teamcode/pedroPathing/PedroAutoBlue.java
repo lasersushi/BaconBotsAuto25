@@ -9,6 +9,7 @@ import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+/// MESSAGE FOR BARON: Is all of this right?
 
 import org.opencv.core.Mat;
 
@@ -49,7 +50,7 @@ public class PedroAutoBlue extends OpMode {
         //IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
 
         follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(new Pose(22, 122, Math.toRadians(143)));
+        follower.setStartingPose(new Pose(22, 122, Math.toRadians(152)));
         buildPaths();
     }
 
@@ -69,7 +70,7 @@ public class PedroAutoBlue extends OpMode {
     private PathChain GoPickup1, GrabPickup1, ScorePickup1, GoPickup2, GrabPickup2, ScorePickup2, GoPickup3, GrabPickup3, ScorePickup3, End;
 
     private void buildPaths() {
-        StartScore = new Path(new BezierLine(new Pose(22, 122.000, Math.toRadians(143)), new Pose(46.000, 96.000, Math.toRadians(143))));
+        StartScore = new Path(new BezierLine(new Pose(22, 122.000, Math.toRadians(152)), new Pose(46.000, 96.000, Math.toRadians(152))));
         StartScore.setLinearHeadingInterpolation(new Pose(22,122).getHeading(), new Pose(46,96).getHeading());
 
         GoPickup1 = follower.pathBuilder().addPath(

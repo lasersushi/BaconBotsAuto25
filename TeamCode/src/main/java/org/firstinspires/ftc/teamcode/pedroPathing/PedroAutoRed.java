@@ -10,6 +10,7 @@ import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 //import com.qualcomm.robotcore.hardware.DcMotorEx;
+/// MESSAGE FOR BARON: Is all of this right?
 
 @Autonomous(name = "PedroAutoRed", group = "Auto")
 public class PedroAutoRed extends OpMode {
@@ -63,7 +64,7 @@ public void setPathState(int pState) {
     private int pathState;
     private Path StartScore;
     private PathChain GoPickup1, GrabPickup1, ScorePickup1, GoPickup2, GrabPickup2, ScorePickup2, GoPickup3, GrabPickup3, ScorePickup3, End;
-
+/// Below is building the paths
     private void buildPaths() {
         StartScore = new Path(new BezierLine(new Pose(122.000, 122.000), new Pose(96.000, 96.000)));
         StartScore.setLinearHeadingInterpolation(Math.toRadians(43), Math.toRadians(43));
