@@ -16,6 +16,8 @@ import org.opencv.core.Mat;
 import kotlin.math.UMathKt;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
+/// MESSAGE FOR BARON: Is all of this right?
+
 @Autonomous(name = "PedroAutoBlue", group = "Auto")
 public class PedroAutoBlue extends OpMode {
     public DcMotorEx ShooterMotor;
