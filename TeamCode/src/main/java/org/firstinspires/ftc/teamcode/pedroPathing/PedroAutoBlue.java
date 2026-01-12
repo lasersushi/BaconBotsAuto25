@@ -9,8 +9,6 @@ import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-/// MESSAGE FOR BARON: Is all of this right?
-
 import org.opencv.core.Mat;
 
 import kotlin.math.UMathKt;
