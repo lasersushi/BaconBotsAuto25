@@ -193,7 +193,7 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .6) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > 1) {
+                    if (timeElapsed > .9) {
                         setPathState(2);
                     }
                 }
@@ -228,7 +228,7 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .6) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > 1) {
+                    if (timeElapsed > .9) {
                         setPathState(4);
                     }
                 }
@@ -264,7 +264,7 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .6) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > 1) {
+                    if (timeElapsed > .9) {
                         setPathState(7);
                     }
                 }
@@ -306,7 +306,7 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .6) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > 1) {
+                    if (timeElapsed > .9) {
                         setPathState(12);
                     }
                 }
