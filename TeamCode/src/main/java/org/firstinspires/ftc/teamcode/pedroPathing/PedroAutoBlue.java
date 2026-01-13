@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedroPathing;
 
 import com.pedropathing.follower.Follower;
-import com.pedropathing.geometry.BezierCurve;
+import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.Pose;
 import com.pedropathing.paths.Path;
@@ -75,9 +75,9 @@ public class PedroAutoBlue extends OpMode {
         StartScore.setLinearHeadingInterpolation(new Pose(22,122).getHeading(), new Pose(46,96).getHeading());
 
         GoPickup1 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(46.000, 96.000, 143),
-                                new Pose(45.134, 70.028),
+                                //new Pose(45.134, 70.028),
                                 new Pose(44.000, 36.000, -92)
                         )
                 ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(44,36).getHeading())
@@ -95,9 +95,9 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         ScorePickup1 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(32.000, 36.000, -180),
-                                new Pose(39.683, 74.413),
+                                //new Pose(39.683, 74.413),
                                 new Pose(46.000, 96.000, 79)
                         )
                 ).setLinearHeadingInterpolation(new Pose(32,36).getHeading(), new Pose(46,96).getHeading())
@@ -105,9 +105,9 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         GoPickup2 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(46.000, 96.000, 143),
-                                new Pose(44.709, 83.216),
+                                //new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000, -87)
                         )
                 ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(46,60).getHeading())
@@ -115,7 +115,7 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         GrabPickup2 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(46.000, 60.000, -87),
 
                                 new Pose(33.000, 60.000, -180)
@@ -125,9 +125,9 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         ScorePickup2 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(33.000, 60.000, -180),
-                                new Pose(39.4990477077817, 77.99525264739836),
+                                //new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000, 70)
                         )
                 ).setLinearHeadingInterpolation(new Pose(33,60).getHeading(), new Pose(46,96).getHeading())
@@ -135,7 +135,7 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         GoPickup3 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(46.000, 96.000, 143),
 
                                 new Pose(44.000, 84.000, -99)
@@ -145,7 +145,7 @@ public class PedroAutoBlue extends OpMode {
                 .build();
 
         GrabPickup3 = follower.pathBuilder().addPath(
-                        new BezierCurve(
+                        new BezierLine(
                                 new Pose(44.000, 84.000, -99),
 
                                 new Pose(32.000, 84.000, -180)
