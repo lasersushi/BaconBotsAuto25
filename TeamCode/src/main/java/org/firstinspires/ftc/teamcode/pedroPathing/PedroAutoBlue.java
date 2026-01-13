@@ -71,106 +71,106 @@ public class PedroAutoBlue extends OpMode {
     private PathChain GoPickup1, GrabPickup1, ScorePickup1, GoPickup2, GrabPickup2, ScorePickup2, GoPickup3, GrabPickup3, ScorePickup3, End;
 
     private void buildPaths() {
-        StartScore = new Path(new BezierLine(new Pose(22, 122.000, 143), new Pose(46.000, 96.000,143)));
-        StartScore.setLinearHeadingInterpolation(new Pose(22,122).getHeading(), new Pose(46,96).getHeading());
+        StartScore = new Path(new BezierLine(new Pose(22, 122.000, -143), new Pose(46.000, 96.000,-143)));
+        StartScore.setTangentHeadingInterpolation();
 
-        GoPickup1 = follower.pathBuilder().addPath(
+       GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 143),
+                                new Pose(46.000, 96.000, -143),
                                 //new Pose(45.134, 70.028),
-                                new Pose(44.000, 36.000, -92)
+                                new Pose(44.000, 36.000, 92)
                         )
-                ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(44,36).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         GrabPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 36.000, -92),
+                                new Pose(44.000, 36.000, 92),
 
-                                new Pose(32.000, 36.000, -180)
+                                new Pose(32.000, 36.000, 180)
                         )
-                ).setLinearHeadingInterpolation(new Pose(44,36).getHeading(), new Pose(32,36).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         ScorePickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(32.000, 36.000, -180),
+                                new Pose(32.000, 36.000, 180),
                                 //new Pose(39.683, 74.413),
-                                new Pose(46.000, 96.000, 79)
+                                new Pose(46.000, 96.000, -79)
                         )
-                ).setLinearHeadingInterpolation(new Pose(32,36).getHeading(), new Pose(46,96).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         GoPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 143),
+                                new Pose(46.000, 96.000, -143),
                                 //new Pose(44.709, 83.216),
-                                new Pose(46.000, 60.000, -87)
+                                new Pose(46.000, 60.000, 87)
                         )
-                ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(46,60).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         GrabPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 60.000, -87),
+                                new Pose(46.000, 60.000, 87),
 
-                                new Pose(33.000, 60.000, -180)
+                                new Pose(33.000, 60.000, 180)
                         )
-                ).setLinearHeadingInterpolation(new Pose(46,60).getHeading(), new Pose(33,60).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         ScorePickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(33.000, 60.000, -180),
+                                new Pose(33.000, 60.000, 180),
                                 //new Pose(39.4990477077817, 77.99525264739836),
-                                new Pose(46.000, 96.000, 70)
+                                new Pose(46.000, 96.000, -70)
                         )
-                ).setLinearHeadingInterpolation(new Pose(33,60).getHeading(), new Pose(46,96).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         GoPickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 143),
+                                new Pose(46.000, 96.000, -143),
 
-                                new Pose(44.000, 84.000, -99)
+                                new Pose(44.000, 84.000, 99)
                         )
-                ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(44,84).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         GrabPickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 84.000, -99),
+                                new Pose(44.000, 84.000, 99),
 
-                                new Pose(32.000, 84.000, -180)
+                                new Pose(32.000, 84.000, 180)
                         )
-                ).setLinearHeadingInterpolation(new Pose(44,84).getHeading(), new Pose(32,84).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         ScorePickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(32.000, 84.000, -180),
+                                new Pose(32.000, 84.000, 180),
 
-                                new Pose(46.000, 96.000 , 41)
+                                new Pose(46.000, 96.000 , -41)
                         )
-                ).setLinearHeadingInterpolation(new Pose(32,84).getHeading(), new Pose(46,96).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
 
         End = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 143),
+                                new Pose(46.000, 96.000, -143),
 
-                                new Pose(60.000, 135.000, 70)
+                                new Pose(60.000, 135.000, -70)
                         )
-                ).setLinearHeadingInterpolation(new Pose(46,96).getHeading(), new Pose(60,130).getHeading())
+                ).setTangentHeadingInterpolation()
 
                 .build();
     }
