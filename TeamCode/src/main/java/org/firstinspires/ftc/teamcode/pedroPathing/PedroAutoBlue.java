@@ -181,7 +181,7 @@ public class PedroAutoBlue extends OpMode {
                 follower.followPath(StartScore, true);
                 ShooterMotor.setPower(1);
                 IntakeMotor2.setPower(1);
-                if (timeElapsed > .3) {
+                if (timeElapsed >.3) {
                     IntakeMotor2.setPower(0);
                 }
                 if (timeElapsed > .8) {
