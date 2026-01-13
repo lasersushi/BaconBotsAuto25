@@ -51,7 +51,7 @@ public class PedroAutoBlue extends OpMode {
         IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
 
         follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(new Pose(22, 122, 323));
+        follower.setStartingPose(new Pose(22,122));
         buildPaths();
     }
 
@@ -71,106 +71,106 @@ public class PedroAutoBlue extends OpMode {
     private PathChain GoPickup1, GrabPickup1, ScorePickup1, GoPickup2, GrabPickup2, ScorePickup2, GoPickup3, GrabPickup3, ScorePickup3, End;
 
     private void buildPaths() {
-        StartScore = new Path(new BezierLine(new Pose(22, 122.000, 323), new Pose(46.000, 96.000,323)));
-        StartScore.setTangentHeadingInterpolation();
+        StartScore = new Path(new BezierLine(new Pose(22, 122.000), new Pose(46.000, 96.000)));
+        StartScore.setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(143));
 
        GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 323),
+                                new Pose(46.000, 96.000),
                                 //new Pose(45.134, 70.028),
-                                new Pose(44.000, 36.000, 272)
+                                new Pose(44.000, 36.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-92))
 
                 .build();
 
         GrabPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 36.000, 272),
+                                new Pose(44.000, 36.000),
 
-                                new Pose(32.000, 36.000, 360)
+                                new Pose(32.000, 36.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180))
 
                 .build();
 
         ScorePickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(32.000, 36.000, 360),
+                                new Pose(32.000, 36.000),
                                 //new Pose(39.883, 74.413),
-                                new Pose(46.000, 96.000, 259)
+                                new Pose(46.000, 96.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(79))
 
                 .build();
 
         GoPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 323),
+                                new Pose(46.000, 96.000),
                                 //new Pose(44.709, 83.216),
-                                new Pose(46.000, 60.000, 267)
+                                new Pose(46.000, 60.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-87))
 
                 .build();
 
         GrabPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 60.000, 267),
+                                new Pose(46.000, 60.000),
 
-                                new Pose(33.000, 60.000, 360)
+                                new Pose(33.000, 60.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180))
 
                 .build();
 
         ScorePickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(33.000, 60.000, 360),
+                                new Pose(33.000, 60.000),
                                 //new Pose(39.4990477077817, 77.99525264739836),
-                                new Pose(46.000, 96.000, 250)
+                                new Pose(46.000, 96.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-70))
 
                 .build();
 
         GoPickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 323),
+                                new Pose(46.000, 96.000),
 
-                                new Pose(44.000, 84.000, 279)
+                                new Pose(44.000, 84.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(99))
 
                 .build();
 
         GrabPickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 84.000, 279),
+                                new Pose(44.000, 84.000),
 
-                                new Pose(32.000, 84.000, 360)
+                                new Pose(32.000, 84.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(99), Math.toRadians(180))
 
                 .build();
 
         ScorePickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(32.000, 84.000, 360),
+                                new Pose(32.000, 84.000),
 
-                                new Pose(46.000, 96.000 , 221)
+                                new Pose(46.000, 96.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-41))
 
                 .build();
 
         End = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000, 323),
+                                new Pose(46.000, 96.000),
 
-                                new Pose(60.000, 135.000, 250)
+                                new Pose(60.000, 135.000)
                         )
-                ).setTangentHeadingInterpolation()
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-70))
 
                 .build();
     }
@@ -193,18 +193,18 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
+                    if (timeElapsed > 2) {
                         setPathState(2);
+                    }
                 }
                 break;
 
             case 2:
-                if (!follower.isBusy()) {
                     follower.followPath(GoPickup1);
                     ShooterMotor.setPower(-.2);
                     IntakeMotor2.setPower(0.035);
                     IntakeMotor1.setPower(1);
                     setPathState(3);
-                }
                 break;
             case 3:
                 if (!follower.isBusy()) {
@@ -225,24 +225,24 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                        setPathState(4);
+                        setPathState(5);
                 }
                 break;
 
             case 5:
                 if (!follower.isBusy()) {
                     follower.followPath(GoPickup2);
-                    ShooterMotor.setPower(.2);
+                    ShooterMotor.setPower(-.2);
                     IntakeMotor2.setPower(0);
                     IntakeMotor1.setPower(1);
-                    setPathState(5);
+                    setPathState(6);
                 }
                 break;
 
             case 6:
                 if (!follower.isBusy()) {
                     follower.followPath(GrabPickup2);
-                    setPathState(6);
+                    setPathState(7);
                 }
                 break;
 
@@ -259,7 +259,7 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                        setPathState(7);
+                        setPathState(8);
                 }
                 break;
 
@@ -267,16 +267,16 @@ public class PedroAutoBlue extends OpMode {
                 if (!follower.isBusy()) {
                     follower.followPath(GoPickup3);
                     IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(.2);
+                    ShooterMotor.setPower(-.2);
                     IntakeMotor1.setPower(1);
-                    setPathState(8);
+                    setPathState(9);
                 }
                 break;
 
             case 9:
                 if (!follower.isBusy()) {
                     follower.followPath(GrabPickup3);
-                    setPathState(9);
+                    setPathState(10);
                 }
                 break;
 
