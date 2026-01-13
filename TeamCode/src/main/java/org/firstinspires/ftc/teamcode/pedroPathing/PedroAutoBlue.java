@@ -97,7 +97,7 @@ public class PedroAutoBlue extends OpMode {
         ScorePickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
                                 new Pose(32.000, 36.000, 180),
-                                //new Pose(39.683, 74.413),
+                                //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000, -79)
                         )
                 ).setTangentHeadingInterpolation()
@@ -188,14 +188,12 @@ public class PedroAutoBlue extends OpMode {
                     IntakeMotor2.setPower(1);
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     if (timeElapsed > .3) {
-                        IntakeMotor2.setPower(-0.05);
+                        IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .6) {
+                    if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > .9) {
                         setPathState(2);
-                    }
                 }
                 break;
 
@@ -216,7 +214,6 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 4:
                 if (!follower.isBusy()) {
-                    telemetry.addLine("It worked again!!!");
                     follower.followPath(ScorePickup1, true);
                     IntakeMotor1.setPower(0);
                     ShooterMotor.setPower(1);
@@ -225,12 +222,10 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .6) {
+                    if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > .9) {
                         setPathState(4);
-                    }
                 }
                 break;
 
@@ -261,12 +256,10 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .6) {
+                    if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > .9) {
                         setPathState(7);
-                    }
                 }
                 break;
 
@@ -303,12 +296,10 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .6) {
+                    if (timeElapsed > .8) {
                         IntakeMotor2.setPower(1);
                     }
-                    if (timeElapsed > .9) {
                         setPathState(12);
-                    }
                 }
 
             case 12:
