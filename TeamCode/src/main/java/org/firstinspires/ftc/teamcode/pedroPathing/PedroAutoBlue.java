@@ -184,9 +184,9 @@ public class PedroAutoBlue extends OpMode {
 
             case 1:
                 if (!follower.isBusy()) {
+                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     ShooterMotor.setPower(1);
                     IntakeMotor2.setPower(1);
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
@@ -214,11 +214,11 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 4:
                 if (!follower.isBusy()) {
+                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     follower.followPath(ScorePickup1, true);
                     IntakeMotor1.setPower(0);
                     ShooterMotor.setPower(1);
                     IntakeMotor2.setPower(1);
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
@@ -248,11 +248,11 @@ public class PedroAutoBlue extends OpMode {
 
             case 7:
                 if (!follower.isBusy()) {
+                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     follower.followPath(ScorePickup2, true);
                     IntakeMotor1.setPower(0);
                     ShooterMotor.setPower(1);
                     IntakeMotor2.setPower(1);
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
@@ -289,10 +289,10 @@ public class PedroAutoBlue extends OpMode {
 
             case 11:
                 if ((!follower.isBusy())) {
+                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     IntakeMotor1.setPower(0);
                     ShooterMotor.setPower(1);
                     IntakeMotor2.setPower(1);
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     if (timeElapsed > .3) {
                         IntakeMotor2.setPower(0);
                     }
