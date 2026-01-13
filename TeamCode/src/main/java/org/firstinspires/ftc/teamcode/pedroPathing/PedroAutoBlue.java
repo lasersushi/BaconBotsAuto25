@@ -51,7 +51,7 @@ public class PedroAutoBlue extends OpMode {
         IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
 
         follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(new Pose(22, 122, 143));
+        follower.setStartingPose(new Pose(22, 122, -143));
         buildPaths();
     }
 
