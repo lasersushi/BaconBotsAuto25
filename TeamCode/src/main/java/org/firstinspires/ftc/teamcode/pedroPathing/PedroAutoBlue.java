@@ -79,7 +79,7 @@ public class PedroAutoBlue extends OpMode {
 
     private void buildPaths() {
         StartScore = new Path(new BezierLine(new Pose(22, 122.000), new Pose(46.000, 96.000)));
-        StartScore.setConstantHeadingInterpolation(Math.toRadians(143));
+        StartScore.setConstantHeadingInterpolation(Math.toRadians(323));
 
        GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
@@ -87,7 +87,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(45.134, 70.028),
                                 new Pose(44.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-92),1)
+                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(-92),1)
 
                 .build();
 
@@ -117,7 +117,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-87),1)
+                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(-87),1)
 
                 .build();
 
@@ -147,7 +147,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(44.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(99),1)
+                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(99),1)
 
                 .build();
 
@@ -177,7 +177,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(60.000, 135.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-70),1)
+                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(-70),1)
 
                 .build();
     }
