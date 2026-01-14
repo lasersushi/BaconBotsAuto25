@@ -177,8 +177,8 @@ public class PedroAutoBlue extends OpMode {
     private void autonomousPathUpdate() {
         switch (pathState) {
             case 0: {
-                follower.followPath(StartScore, true);
                 double timeElapsed = pathTimer.getElapsedTimeSeconds();
+                follower.followPath(StartScore, true);
                 ShooterMotor.setPower(1);
                 IntakeMotor2.setPower(1);
                 if (timeElapsed > .3) {
