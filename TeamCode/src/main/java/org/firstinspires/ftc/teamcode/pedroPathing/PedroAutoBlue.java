@@ -8,6 +8,7 @@ import com.pedropathing.geometry.Pose;
 import com.pedropathing.paths.Path;
 import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
+import com.qualcomm.hardware.ams.AMSColorSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -41,7 +42,6 @@ public class PedroAutoBlue extends OpMode {
         pathTimer = new Timer();
         opmodeTimer = new Timer();
         opmodeTimer.resetTimer();
-
 
         // Hardware Map
         ShooterMotor = hardwareMap.get(DcMotorEx.class, "ShooterMotor");
@@ -87,7 +87,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(44.000, 36.000),
 
-                                new Pose(32.000, 36.000)
+                                new Pose(40.000, 36.000)
                         )
                 ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180),0.8)
 
@@ -117,7 +117,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 60.000),
 
-                                new Pose(33.000, 60.000)
+                                new Pose(40.000, 60.000)
                         )
                 ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180),0.8)
 
@@ -147,7 +147,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(44.000, 84.000),
 
-                                new Pose(32.000, 84.000)
+                                new Pose(40.000, 84.000)
                         )
                 ).setLinearHeadingInterpolation(Math.toRadians(-99), Math.toRadians(-180),0.8)
 
@@ -178,22 +178,19 @@ public class PedroAutoBlue extends OpMode {
             case 0: {
                 double timeElapsed = pathTimer.getElapsedTimeSeconds();
                 follower.followPath(StartScore, true);
-                ShooterMotor.setPower(1);
-                IntakeMotor2.setPower(1);
-                if (timeElapsed >.5) {
+                ShooterMotor.setPower(.65);
+                    IntakeMotor2.setPower(-1);
+                    IntakeMotor1.setPower(-1);
+                if (timeElapsed > 5) {
                     IntakeMotor2.setPower(0);
                 }
-                if (timeElapsed > 1) {
-                    IntakeMotor2.setPower(1);
+                if (timeElapsed > 10) {
+                    IntakeMotor2.setPower(-1);
                 }
-                setPathState(2);
             }
             break;
-
             case 2:
                 follower.followPath(GoPickup1);
-                ShooterMotor.setPower(-.2);
-                IntakeMotor2.setPower(0.035);
                 IntakeMotor1.setPower(-1);
                 setPathState(3);
                 break;
@@ -206,15 +203,19 @@ public class PedroAutoBlue extends OpMode {
             case 4:
                 if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
+                    pathTimer.resetTimer();
                     follower.followPath(ScorePickup1, true);
-                    IntakeMotor1.setPower(0);
-                    ShooterMotor.setPower(1);
-                    IntakeMotor2.setPower(1);
-                    if (timeElapsed > .3) {
+                    ShooterMotor.setPower(.65);
+                    IntakeMotor2.setPower(-1);
+                    IntakeMotor1.setPower(-1);
+                    if (timeElapsed > 5) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .8) {
-                        IntakeMotor2.setPower(1);
+                    if (timeElapsed > 10) {
+                        IntakeMotor2.setPower(-1);
+                    }
+                    while (timeElapsed > 11) {
+                        setPathState(2);
                     }
                     setPathState(5);
                 }
@@ -240,15 +241,19 @@ public class PedroAutoBlue extends OpMode {
             case 7:
                 if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
+                    pathTimer.resetTimer();
                     follower.followPath(ScorePickup2, true);
-                    IntakeMotor1.setPower(0);
-                    ShooterMotor.setPower(1);
-                    IntakeMotor2.setPower(1);
-                    if (timeElapsed > .3) {
+                    ShooterMotor.setPower(.65);
+                    IntakeMotor2.setPower(-1);
+                    IntakeMotor1.setPower(-1);
+                    if (timeElapsed > 5) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > .8) {
-                        IntakeMotor2.setPower(1);
+                    if (timeElapsed > 10) {
+                        IntakeMotor2.setPower(-1);
+                    }
+                    while (timeElapsed > 11) {
+                        setPathState(2);
                     }
                     setPathState(8);
                 }
@@ -273,23 +278,27 @@ public class PedroAutoBlue extends OpMode {
 
             case 10:
                 if (!follower.isBusy()) {
+                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
+                    pathTimer.resetTimer();
                     follower.followPath(ScorePickup3, true);
+                    ShooterMotor.setPower(.65);
+                    IntakeMotor2.setPower(-1);
+                    IntakeMotor1.setPower(-1);
+                    if (timeElapsed > 5) {
+                        IntakeMotor2.setPower(0);
+                    }
+                    if (timeElapsed > 10) {
+                        IntakeMotor2.setPower(-1);
+                    }
+                    while (timeElapsed > 11) {
+                        setPathState(2);
+                    }
                     setPathState(11);
                 }
                 break;
 
             case 11:
                 if ((!follower.isBusy())) {
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    IntakeMotor1.setPower(0);
-                    ShooterMotor.setPower(1);
-                    IntakeMotor2.setPower(1);
-                    if (timeElapsed > .3) {
-                        IntakeMotor2.setPower(0);
-                    }
-                    if (timeElapsed > .8) {
-                        IntakeMotor2.setPower(1);
-                    }
                     setPathState(12);
                 }
 
