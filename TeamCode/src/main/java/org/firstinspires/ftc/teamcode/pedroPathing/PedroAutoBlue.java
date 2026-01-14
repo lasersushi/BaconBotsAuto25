@@ -80,7 +80,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(45.134, 70.028),
                                 new Pose(44.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-92))
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-92),1)
 
                 .build();
 
@@ -90,7 +90,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(32.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180))
+                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180),1)
 
                 .build();
 
@@ -100,7 +100,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(79))
+                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(79),1)
 
                 .build();
 
@@ -110,7 +110,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-87))
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-87),1)
 
                 .build();
 
@@ -120,7 +120,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(33.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180))
+                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180),1)
 
                 .build();
 
@@ -130,7 +130,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-70))
+                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-70),1)
 
                 .build();
 
@@ -140,7 +140,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(44.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(99))
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(99),1)
 
                 .build();
 
@@ -150,7 +150,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(32.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(99), Math.toRadians(180))
+                ).setLinearHeadingInterpolation(Math.toRadians(99), Math.toRadians(180),1)
 
                 .build();
 
@@ -160,7 +160,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-41))
+                ).setLinearHeadingInterpolation(Math.toRadians(180), Math.toRadians(-41),1)
 
                 .build();
 
@@ -170,7 +170,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(60.000, 135.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-70))
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-70),1)
 
                 .build();
     }
@@ -181,10 +181,10 @@ public class PedroAutoBlue extends OpMode {
                 follower.followPath(StartScore, true);
                 ShooterMotor.setPower(1);
                 IntakeMotor2.setPower(1);
-                if (timeElapsed >.3) {
+                if (timeElapsed >.5) {
                     IntakeMotor2.setPower(0);
                 }
-                if (timeElapsed > .8) {
+                if (timeElapsed > 1) {
                     IntakeMotor2.setPower(1);
                 }
                 setPathState(2);
