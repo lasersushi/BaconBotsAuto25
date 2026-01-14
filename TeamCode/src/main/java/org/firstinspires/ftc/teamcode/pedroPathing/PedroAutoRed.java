@@ -10,7 +10,7 @@
 //import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 //import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 ////import com.qualcomm.robotcore.hardware.DcMotorEx;
-///// MESSAGE FOR BARON: Is all of this right?
+/// MESSAGE FOR BARON: Just ignore this.
 //
 //@Autonomous(name = "PedroAutoRed", group = "Auto")
 //public class PedroAutoRed extends OpMode {
