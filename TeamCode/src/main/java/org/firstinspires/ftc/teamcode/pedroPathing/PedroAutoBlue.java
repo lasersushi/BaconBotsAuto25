@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode.pedroPathing;
 
+import static org.firstinspires.ftc.teamcode.pedroPathing.Tuning.telemetryM;
+
 import com.pedropathing.follower.Follower;
-import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.Pose;
 import com.pedropathing.paths.Path;
@@ -9,9 +10,6 @@ import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import org.opencv.core.Mat;
-
-import kotlin.math.UMathKt;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 /// MESSAGE FOR BARON: Is all of this right?
@@ -28,6 +26,10 @@ public class PedroAutoBlue extends OpMode {
 
     @Override
     public void loop() {
+        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
+        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
+        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
+        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
         follower.update();
         autonomousPathUpdate();
 
@@ -35,6 +37,11 @@ public class PedroAutoBlue extends OpMode {
         telemetry.addData("x", follower.getPose().getX());
         telemetry.addData("y", follower.getPose().getY());
         telemetry.addData("heading", follower.getPose().getHeading());
+        telemetryM.debug("This is just updating ticks for debugging purposes");
+        telemetryM.debug("FL Ticks", fl);
+        telemetryM.debug("BL Ticks", bl);
+        telemetryM.debug("FR Ticks", fr);
+        telemetryM.debug("BR Ticks", br);
         telemetry.update();
     }
 
