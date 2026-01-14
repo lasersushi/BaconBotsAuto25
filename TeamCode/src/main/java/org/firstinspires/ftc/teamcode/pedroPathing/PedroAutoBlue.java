@@ -26,10 +26,6 @@ public class PedroAutoBlue extends OpMode {
 
     @Override
     public void loop() {
-        double fl = hardwareMap.get(DcMotorEx.class, "LeftFront").getCurrentPosition();
-        double bl = hardwareMap.get(DcMotorEx.class, "LeftBack").getCurrentPosition();
-        double fr = hardwareMap.get(DcMotorEx.class, "RightFront").getCurrentPosition();
-        double br = hardwareMap.get(DcMotorEx.class, "RightBack").getCurrentPosition();
         follower.update();
         autonomousPathUpdate();
 
@@ -37,11 +33,6 @@ public class PedroAutoBlue extends OpMode {
         telemetry.addData("x", follower.getPose().getX());
         telemetry.addData("y", follower.getPose().getY());
         telemetry.addData("heading", follower.getPose().getHeading());
-        telemetryM.debug("This is just updating ticks for debugging purposes");
-        telemetryM.debug("FL Ticks", fl);
-        telemetryM.debug("BL Ticks", bl);
-        telemetryM.debug("FR Ticks", fr);
-        telemetryM.debug("BR Ticks", br);
         telemetry.update();
     }
 
@@ -59,6 +50,7 @@ public class PedroAutoBlue extends OpMode {
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(new Pose(22,122));
+        follower.setHeading(Math.toRadians(143));
         buildPaths();
     }
 
@@ -79,7 +71,7 @@ public class PedroAutoBlue extends OpMode {
 
     private void buildPaths() {
         StartScore = new Path(new BezierLine(new Pose(22, 122.000), new Pose(46.000, 96.000)));
-        StartScore.setConstantHeadingInterpolation(Math.toRadians(323));
+        StartScore.setConstantHeadingInterpolation(Math.toRadians(143));
 
         GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
@@ -87,7 +79,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(45.134, 70.028),
                                 new Pose(44.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(88),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-92),0.8)
 
                 .build();
 
@@ -97,7 +89,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(32.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(88), Math.toRadians(0),0.2)
+                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180),0.8)
 
                 .build();
 
@@ -107,7 +99,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(323),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
 
                 .build();
 
@@ -117,7 +109,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(93),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-87),0.8)
 
                 .build();
 
@@ -127,7 +119,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(33.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(93), Math.toRadians(0),0.2)
+                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180),0.8)
 
                 .build();
 
@@ -137,7 +129,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(323),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
 
                 .build();
 
@@ -147,7 +139,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(44.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(81),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-99),0.8)
 
                 .build();
 
@@ -157,7 +149,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(32.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(81), Math.toRadians(0),0.2)
+                ).setLinearHeadingInterpolation(Math.toRadians(-99), Math.toRadians(-180),0.8)
 
                 .build();
 
@@ -167,7 +159,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(323),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
 
                 .build();
 
@@ -177,7 +169,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(60.000, 130.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(323), Math.toRadians(250),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(70),0.8)
 
                 .build();
     }
