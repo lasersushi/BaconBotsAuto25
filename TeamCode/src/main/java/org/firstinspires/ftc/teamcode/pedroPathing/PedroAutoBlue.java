@@ -22,7 +22,6 @@ public class PedroAutoBlue extends OpMode {
     public DcMotorEx IntakeMotor2;
     public void setPathState(int pState) {
         pathState = pState;
-        pathTimer.resetTimer();
     }
 
     @Override
@@ -179,6 +178,7 @@ public class PedroAutoBlue extends OpMode {
         switch (pathState) {
             //Starting pose
             case 0: {
+                ShooterMotor.setPower(.65);
                 follower.followPath(StartScore, true);
                 setPathState(20);
                 pathTimer.resetTimer();
@@ -186,14 +186,8 @@ public class PedroAutoBlue extends OpMode {
             case 20:
                 if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    ShooterMotor.setPower(.65);
-                    if (timeElapsed > .5) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
-                    }
-                    else {
-                        setPathState(20);
-                    }
                     if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
@@ -324,6 +318,7 @@ public class PedroAutoBlue extends OpMode {
                 if ((!follower.isBusy())) {
                     setPathState(12);
                 }
+                break;
 
             case 12:
                 if (!follower.isBusy()) {
