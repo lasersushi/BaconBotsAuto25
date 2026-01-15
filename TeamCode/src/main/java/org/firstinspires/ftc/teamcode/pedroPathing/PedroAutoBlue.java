@@ -191,15 +191,9 @@ public class PedroAutoBlue extends OpMode {
                     if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
-                    else {
-                        setPathState(20);
-                    }
                     if (timeElapsed > 2) {
                         IntakeMotor2.setPower(-.99);
                         setPathState(2);
-                    }
-                    else {
-                        setPathState(20);
                     }
                 }
             break;
@@ -228,15 +222,12 @@ public class PedroAutoBlue extends OpMode {
                     ShooterMotor.setPower(.65);
                     IntakeMotor2.setPower(-1);
                     IntakeMotor1.setPower(-1);
-                    if (timeElapsed > 5) {
+                    if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > 10) {
+                    if (timeElapsed > 2) {
                         IntakeMotor2.setPower(-1);
                         setPathState(5);
-                    }
-                    else {
-                        setPathState(21);
                     }
                 }
                 break;
@@ -266,15 +257,12 @@ public class PedroAutoBlue extends OpMode {
                     ShooterMotor.setPower(.65);
                     IntakeMotor2.setPower(-1);
                     IntakeMotor1.setPower(-1);
-                    if (timeElapsed > 5) {
+                    if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > 10) {
+                    if (timeElapsed > 2) {
                         IntakeMotor2.setPower(-1);
                         setPathState(8);
-                    }
-                    else {
-                        setPathState(7);
                     }
                 }
                 break;
@@ -304,13 +292,13 @@ public class PedroAutoBlue extends OpMode {
                     ShooterMotor.setPower(.65);
                     IntakeMotor2.setPower(-1);
                     IntakeMotor1.setPower(-1);
-                    if (timeElapsed > 5) {
+                    if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
-                    if (timeElapsed > 10) {
+                    if (timeElapsed > 2) {
                         IntakeMotor2.setPower(-1);
+                        setPathState(11);
                     }
-                    setPathState(11);
                 }
                 break;
 
