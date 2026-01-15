@@ -309,14 +309,8 @@ public class PedroAutoBlue extends OpMode {
                     }
                     if (timeElapsed > 2) {
                         IntakeMotor2.setPower(-1);
-                        setPathState(11);
+                        setPathState(12);
                     }
-                }
-                break;
-
-            case 11:
-                if ((!follower.isBusy())) {
-                    setPathState(12);
                 }
                 break;
 
