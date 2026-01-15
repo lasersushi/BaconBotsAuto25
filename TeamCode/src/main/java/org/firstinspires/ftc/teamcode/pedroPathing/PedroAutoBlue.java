@@ -186,8 +186,8 @@ public class PedroAutoBlue extends OpMode {
             case 20:
                 if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                        IntakeMotor2.setPower(-1);
-                        IntakeMotor1.setPower(-1);
+                    IntakeMotor2.setPower(-1);
+                    IntakeMotor1.setPower(-1);
                     if (timeElapsed > 1) {
                         IntakeMotor2.setPower(0);
                     }
@@ -196,7 +196,7 @@ public class PedroAutoBlue extends OpMode {
                         setPathState(2);
                     }
                 }
-            break;
+                break;
             case 2:
                 follower.followPath(GoPickup1);
                 IntakeMotor1.setPower(-1);
@@ -246,13 +246,19 @@ public class PedroAutoBlue extends OpMode {
                 if (!follower.isBusy()) {
                     follower.followPath(GrabPickup2);
                     setPathState(7);
-                    pathTimer.resetTimer();
                 }
                 break;
 
             case 7:
                 if (!follower.isBusy()) {
                     follower.followPath(ScorePickup2, true);
+                    setPathState(22);
+                    pathTimer.resetTimer();
+                }
+                break;
+
+            case 22:
+                if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     ShooterMotor.setPower(.65);
                     IntakeMotor2.setPower(-1);
@@ -281,13 +287,19 @@ public class PedroAutoBlue extends OpMode {
                 if (!follower.isBusy()) {
                     follower.followPath(GrabPickup3);
                     setPathState(10);
-                    pathTimer.resetTimer();
                 }
                 break;
 
             case 10:
                 if (!follower.isBusy()) {
                     follower.followPath(ScorePickup3, true);
+                    setPathState(23);
+                    pathTimer.resetTimer();
+                }
+                break;
+
+            case 23:
+                if (!follower.isBusy()) {
                     double timeElapsed = pathTimer.getElapsedTimeSeconds();
                     ShooterMotor.setPower(.65);
                     IntakeMotor2.setPower(-1);
