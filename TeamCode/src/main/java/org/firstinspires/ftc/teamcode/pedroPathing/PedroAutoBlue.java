@@ -87,9 +87,9 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(44.000, 36.000),
 
-                                new Pose(40.000, 36.000)
+                                new Pose(32.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-92), Math.toRadians(-180),0.3)
 
                 .build();
 
@@ -119,7 +119,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(40.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-87), Math.toRadians(-180),0.3)
 
                 .build();
 
@@ -149,7 +149,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(40.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-99), Math.toRadians(-180),0.8)
+                ).setLinearHeadingInterpolation(Math.toRadians(-99), Math.toRadians(-180),0.3)
 
                 .build();
 
