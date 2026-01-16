@@ -186,11 +186,8 @@ public class PedroAutoBlue extends OpMode {
             }
             case 20:
                 if (!follower.isBusy()) {
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    IntakeMotor2.setPower(-1);
-                    IntakeMotor1.setPower(-1);
-                    if (timeElapsed > .5) {
-                        IntakeMotor2.setPower(0);
+                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
+                        IntakeMotor2.setPower(-1);
                     }
                     if (timeElapsed > 1) {
                         IntakeMotor2.setPower(-.99);
