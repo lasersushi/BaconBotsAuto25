@@ -81,7 +81,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000),
                                 //new Pose(45.134, 70.028),
-                                new Pose(44.000, 36.000)
+                                new Pose(44.000, 30.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(-92))
 
@@ -89,9 +89,9 @@ public class PedroAutoBlue extends OpMode {
 
         GrabPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 36.000),
+                                new Pose(44.000, 30.000),
 
-                                new Pose(29.000, 36.000)
+                                new Pose(29.000, 30.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -99,7 +99,7 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(29.000, 36.000),
+                                new Pose(29.000, 30.000),
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
@@ -111,7 +111,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000),
                                 //new Pose(44.709, 83.216),
-                                new Pose(46.000, 60.000)
+                                new Pose(46.000, 50.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -119,9 +119,9 @@ public class PedroAutoBlue extends OpMode {
 
         GrabPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 60.000),
+                                new Pose(46.000, 50.000),
 
-                                new Pose(29.000, 60.000)
+                                new Pose(29.000, 50.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -129,8 +129,8 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(29.000, 60.000),
-                                //new Pose(39.4990477077817, 77.99525264739836),
+                                new Pose(29.000, 50.000),
+                                //new Pose(39.4990477077817, 77.99525264739830),
                                 new Pose(46.000, 96.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(133))
@@ -141,7 +141,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000),
 
-                                new Pose(44.000, 84.000)
+                                new Pose(44.000, 79.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -149,9 +149,9 @@ public class PedroAutoBlue extends OpMode {
 
         GrabPickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 84.000),
+                                new Pose(44.000, 79.000),
 
-                                new Pose(29.000, 84.000)
+                                new Pose(29.000, 79.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -159,7 +159,7 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(29.000, 84.000),
+                                new Pose(29.000, 79.000),
 
                                 new Pose(46.000, 96.000)
                         )
