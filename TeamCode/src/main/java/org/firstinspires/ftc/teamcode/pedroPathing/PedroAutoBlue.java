@@ -43,9 +43,9 @@ public class PedroAutoBlue extends OpMode {
         opmodeTimer.resetTimer();
 
         // Hardware Map
-        ShooterMotor = hardwareMap.get(DcMotorEx.class, "ShooterMotor");
-        IntakeMotor1 = hardwareMap.get(DcMotorEx.class, "IntakeMotor1");
-        IntakeMotor2 = hardwareMap.get(DcMotorEx.class, "IntakeMotor2");
+        ShooterMotor = hardwareMap.get(DcMotorSimple.class, "ShooterMotor");
+        IntakeMotor1 = hardwareMap.get(DcMotorSimple.class, "IntakeMotor1");
+        IntakeMotor2 = hardwareMap.get(DcMotorSimple.class, "IntakeMotor2");
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(new Pose(22,122));
