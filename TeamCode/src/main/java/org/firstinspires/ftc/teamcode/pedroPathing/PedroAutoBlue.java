@@ -175,6 +175,7 @@ public class PedroAutoBlue extends OpMode {
     }
     /// Reminder: CREATE NEW SEPARATE STATES FOR SHOOTING
     private void autonomousPathUpdate() {
+        
         switch (pathState) {
             //Starting pose
             case 0: {
