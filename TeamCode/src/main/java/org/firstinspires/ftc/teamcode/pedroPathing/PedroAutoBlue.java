@@ -73,7 +73,7 @@ public class PedroAutoBlue extends OpMode {
 
     private void buildPaths() {
         StartScore = new Path(new BezierLine(new Pose(22, 122.000), new Pose(46.000, 96.000)));
-        StartScore.setConstantHeadingInterpolation(Math.toRadians(135));
+        StartScore.setConstantHeadingInterpolation(143);
 
         GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
