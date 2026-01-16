@@ -191,14 +191,14 @@ public class PedroAutoBlue extends OpMode {
             break;
             case 20:
                 if (!follower.isBusy()) {
-                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
+                    if (pathTimer.getElapsedTimeSeconds() > 1 && pathTimer.getElapsedTimeSeconds() < 2) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4 && pathTimer.getElapsedTimeSeconds() < 6) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
                         setPathState(2);
                     }
                 }
@@ -228,14 +228,14 @@ public class PedroAutoBlue extends OpMode {
 
             case 21:
                 if (!follower.isBusy()) {
-                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
+                    if (pathTimer.getElapsedTimeSeconds() > 1 && pathTimer.getElapsedTimeSeconds() < 2) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4 && pathTimer.getElapsedTimeSeconds() < 6) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
                         setPathState(5);
                     }
                 }
@@ -268,14 +268,14 @@ public class PedroAutoBlue extends OpMode {
 
             case 22:
                 if (!follower.isBusy()) {
-                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
+                    if (pathTimer.getElapsedTimeSeconds() > 1 && pathTimer.getElapsedTimeSeconds() < 2) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4 && pathTimer.getElapsedTimeSeconds() < 6) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
                         setPathState(8);
                     }
                 }
@@ -308,14 +308,14 @@ public class PedroAutoBlue extends OpMode {
 
             case 23:
                 if (!follower.isBusy()) {
-                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
+                    if (pathTimer.getElapsedTimeSeconds() > 1 && pathTimer.getElapsedTimeSeconds() < 2) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4 && pathTimer.getElapsedTimeSeconds() < 6) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
                         setPathState(12);
                     }
                 }
