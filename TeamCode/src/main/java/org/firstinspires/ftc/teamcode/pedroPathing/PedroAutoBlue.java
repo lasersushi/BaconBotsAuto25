@@ -189,9 +189,9 @@ public class PedroAutoBlue extends OpMode {
                     if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (timeElapsed > 1) {
-                        IntakeMotor2.setPower(-.99);
-                        setPathState(2);
+                    if (pathTimer.getElapsedTimeSeconds() > 8 && pathTimer.getElapsedTimeSeconds() < 9) {
+                        IntakeMotor2.setPower(-1);
+                        IntakeMotor1.setPower(-1);
                     }
                 }
                 break;
