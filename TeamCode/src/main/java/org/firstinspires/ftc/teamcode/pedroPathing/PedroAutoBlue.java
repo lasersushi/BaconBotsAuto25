@@ -11,7 +11,9 @@ import com.pedropathing.util.Timer;
 import com.qualcomm.hardware.ams.AMSColorSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 /// MESSAGE FOR BARON: Is all of this right?
 
@@ -71,7 +73,7 @@ public class PedroAutoBlue extends OpMode {
 
     private void buildPaths() {
         StartScore = new Path(new BezierLine(new Pose(22, 122.000), new Pose(46.000, 96.000)));
-        StartScore.setConstantHeadingInterpolation(Math.toRadians(143));
+        StartScore.setConstantHeadingInterpolation(Math.toRadians(135));
 
         GoPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
@@ -79,7 +81,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(45.134, 70.028),
                                 new Pose(44.000, 36.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-180),0.8)
+                ).setConstantHeadingInterpolation(-92)
 
                 .build();
 
@@ -89,7 +91,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(32.000, 36.000)
                         )
-                ).setConstantHeadingInterpolation(-180)
+                ).setConstantHeadingInterpolation(180)
 
                 .build();
 
@@ -99,7 +101,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
+                ).setConstantHeadingInterpolation(135)
 
                 .build();
 
@@ -109,7 +111,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(44.709, 83.216),
                                 new Pose(46.000, 60.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-180),0.8)
+                ).setConstantHeadingInterpolation(180)
 
                 .build();
 
@@ -119,7 +121,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(40.000, 60.000)
                         )
-                ).setConstantHeadingInterpolation(-180)
+                ).setConstantHeadingInterpolation(180)
 
                 .build();
 
@@ -129,7 +131,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
+                ).setConstantHeadingInterpolation(135)
 
                 .build();
 
@@ -139,7 +141,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(44.000, 84.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(143), Math.toRadians(-180),0.8)
+                ).setConstantHeadingInterpolation(180)
 
                 .build();
 
@@ -149,7 +151,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(40.000, 84.000)
                         )
-                ).setConstantHeadingInterpolation(-180)
+                ).setConstantHeadingInterpolation(180)
 
                 .build();
 
@@ -159,7 +161,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(46.000, 96.000)
                         )
-                ).setLinearHeadingInterpolation(Math.toRadians(-180), Math.toRadians(143),0.8)
+                ).setConstantHeadingInterpolation(135)
 
                 .build();
 
@@ -169,13 +171,13 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(60.000, 130.000)
                         )
-                ).setConstantHeadingInterpolation(143)
+                ).setConstantHeadingInterpolation(70)
 
                 .build();
     }
     /// Reminder: CREATE NEW SEPARATE STATES FOR SHOOTING
     private void autonomousPathUpdate() {
-        
+
         switch (pathState) {
             //Starting pose
             case 0: {
@@ -189,9 +191,12 @@ public class PedroAutoBlue extends OpMode {
                     if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 8 && pathTimer.getElapsedTimeSeconds() < 9) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                        setPathState(2);
                     }
                 }
                 break;
@@ -211,7 +216,7 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 4:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.65);
+                    ShooterMotor.setPower(.6);
                     follower.followPath(ScorePickup1, true);
                     setPathState(21);
                     pathTimer.resetTimer();
@@ -220,27 +225,26 @@ public class PedroAutoBlue extends OpMode {
 
             case 21:
                 if (!follower.isBusy()) {
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    IntakeMotor2.setPower(-1);
-                    IntakeMotor1.setPower(-1);
-                    if (timeElapsed > .5) {
-                        IntakeMotor2.setPower(0);
-                    }
-                    if (timeElapsed > 1) {
+                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
                         IntakeMotor2.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                        IntakeMotor2.setPower(-1);
+                        IntakeMotor1.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
                         setPathState(5);
                     }
                 }
                 break;
 
             case 5:
-                if (!follower.isBusy()) {
+                    ShooterMotor.setPower(0);
+                    IntakeMotor1.setPower(1);
+                    IntakeMotor2.setPower(1);
                     follower.followPath(GoPickup2,true);
-                    ShooterMotor.setPower(-.2);
-                    IntakeMotor2.setPower(0);
                     IntakeMotor1.setPower(-1);
                     setPathState(6);
-                }
                 break;
 
             case 6:
@@ -252,7 +256,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 7:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.65);
+                    ShooterMotor.setPower(.6);
                     follower.followPath(ScorePickup2, true);
                     setPathState(22);
                     pathTimer.resetTimer();
@@ -261,27 +265,26 @@ public class PedroAutoBlue extends OpMode {
 
             case 22:
                 if (!follower.isBusy()) {
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    IntakeMotor2.setPower(-1);
-                    IntakeMotor1.setPower(-1);
-                    if (timeElapsed > .5) {
-                        IntakeMotor2.setPower(0);
-                    }
-                    if (timeElapsed > 1) {
+                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
                         IntakeMotor2.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                        IntakeMotor2.setPower(-1);
+                        IntakeMotor1.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
                         setPathState(8);
                     }
                 }
                 break;
 
             case 8:
-                if (!follower.isBusy()) {
-                    follower.followPath(GoPickup3,true);
-                    IntakeMotor2.setPower(0);
-                    ShooterMotor.setPower(-.2);
-                    IntakeMotor1.setPower(-1);
-                    setPathState(9);
-                }
+                ShooterMotor.setPower(0);
+                IntakeMotor1.setPower(1);
+                IntakeMotor2.setPower(1);
+                follower.followPath(GoPickup1,true);
+                IntakeMotor1.setPower(-1);
+                setPathState(9);
                 break;
 
             case 9:
@@ -293,7 +296,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 10:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.65);
+                    ShooterMotor.setPower(.6);
                     follower.followPath(ScorePickup3, true);
                     setPathState(23);
                     pathTimer.resetTimer();
@@ -302,15 +305,15 @@ public class PedroAutoBlue extends OpMode {
 
             case 23:
                 if (!follower.isBusy()) {
-                    double timeElapsed = pathTimer.getElapsedTimeSeconds();
-                    IntakeMotor2.setPower(-1);
-                    IntakeMotor1.setPower(-1);
-                    if (timeElapsed > .5) {
-                        IntakeMotor2.setPower(0);
-                    }
-                    if (timeElapsed > 1) {
+                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
                         IntakeMotor2.setPower(-1);
-                        setPathState(12);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 8) {
+                        IntakeMotor2.setPower(-1);
+                        IntakeMotor1.setPower(-1);
+                    }
+                    if (pathTimer.getElapsedTimeSeconds() > 8.5) {
+                        setPathState(2);
                     }
                 }
                 break;
