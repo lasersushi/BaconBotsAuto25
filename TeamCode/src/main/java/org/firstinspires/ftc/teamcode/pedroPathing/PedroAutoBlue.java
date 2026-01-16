@@ -205,7 +205,7 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 3:
                 if (!follower.isBusy()) {
-                    follower.followPath(GrabPickup1);
+                    follower.followPath(GrabPickup1,true);
                     setPathState(4);
                 }
                 break;
