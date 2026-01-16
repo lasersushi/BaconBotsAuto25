@@ -111,7 +111,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000),
                                 //new Pose(44.709, 83.216),
-                                new Pose(46.000, 50.000)
+                                new Pose(46.000, 44)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -119,9 +119,9 @@ public class PedroAutoBlue extends OpMode {
 
         GrabPickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 50.000),
+                                new Pose(46.000, 44.000),
 
-                                new Pose(25.000, 50.000)
+                                new Pose(25.000, 44.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -133,7 +133,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739830),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(135))
+                ).setConstantHeadingInterpolation(Math.toRadians(220))
 
                 .build();
 
