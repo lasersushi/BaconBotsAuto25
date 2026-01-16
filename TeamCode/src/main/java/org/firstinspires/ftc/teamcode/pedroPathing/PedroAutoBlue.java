@@ -15,6 +15,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import org.opencv.core.Mat;
+
 /// MESSAGE FOR BARON: Is all of this right?
 
 @Autonomous(name = "PedroAutoBlue", group = "Auto")
@@ -51,7 +53,7 @@ public class PedroAutoBlue extends OpMode {
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(new Pose(22,122));
-        follower.setHeading(Math.toRadians(135));
+        follower.setHeading(Math.toRadians(143));
         buildPaths();
     }
 
@@ -101,7 +103,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(135))
+                ).setConstantHeadingInterpolation(Math.toRadians(143))
 
                 .build();
 
@@ -119,7 +121,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 60.000),
 
-                                new Pose(40.000, 60.000)
+                                new Pose(33.000, 60.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(180))
 
@@ -131,7 +133,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739836),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(135))
+                ).setConstantHeadingInterpolation(Math.toRadians(143))
 
                 .build();
 
@@ -149,7 +151,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(44.000, 84.000),
 
-                                new Pose(40.000, 84.000)
+                                new Pose(33.000, 84.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(180))
 
@@ -157,11 +159,11 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(32.000, 84.000),
+                                new Pose(33.000, 84.000),
 
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(135))
+                ).setConstantHeadingInterpolation(Math.toRadians(143))
 
                 .build();
 
@@ -186,6 +188,7 @@ public class PedroAutoBlue extends OpMode {
                 setPathState(20);
                 pathTimer.resetTimer();
             }
+            break;
             case 20:
                 if (!follower.isBusy()) {
                     if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4.05) {
@@ -324,11 +327,15 @@ public class PedroAutoBlue extends OpMode {
                     ShooterMotor.setPower(0);
                     IntakeMotor1.setPower(0);
                     IntakeMotor2.setPower(0);
+                    setPathState(-1);
                 }
                 break;
         }
     }
     @Override
     public void stop() {
+        ShooterMotor.setPower(0);
+        IntakeMotor1.setPower(0);
+        IntakeMotor2.setPower(0);
     }
 }
