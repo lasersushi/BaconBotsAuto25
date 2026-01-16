@@ -198,7 +198,7 @@ public class PedroAutoBlue extends OpMode {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6.5) {
                         setPathState(2);
                     }
                 }
@@ -235,7 +235,7 @@ public class PedroAutoBlue extends OpMode {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6.5) {
                         setPathState(5);
                     }
                 }
@@ -275,7 +275,7 @@ public class PedroAutoBlue extends OpMode {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6.5) {
                         setPathState(8);
                     }
                 }
@@ -315,7 +315,7 @@ public class PedroAutoBlue extends OpMode {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 4.5) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6.5) {
                         setPathState(12);
                     }
                 }
