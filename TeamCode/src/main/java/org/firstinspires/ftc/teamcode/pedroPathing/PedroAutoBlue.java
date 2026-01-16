@@ -17,9 +17,9 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 @Autonomous(name = "PedroAutoBlue", group = "Auto")
 public class PedroAutoBlue extends OpMode {
-    public DcMotorEx ShooterMotor;
-    public DcMotorEx IntakeMotor1;
-    public DcMotorEx IntakeMotor2;
+    public DcMotorSimple ShooterMotor;
+    public DcMotorSimple IntakeMotor1;
+    public DcMotorSimple IntakeMotor2;
     public void setPathState(int pState) {
         pathState = pState;
     }
