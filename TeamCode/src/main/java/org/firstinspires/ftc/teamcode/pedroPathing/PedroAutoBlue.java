@@ -103,7 +103,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(138))
+                ).setConstantHeadingInterpolation(Math.toRadians(136))
 
                 .build();
 
@@ -133,7 +133,7 @@ public class PedroAutoBlue extends OpMode {
                                 //new Pose(39.4990477077817, 77.99525264739830),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(133))
+                ).setConstantHeadingInterpolation(Math.toRadians(129))
 
                 .build();
 
@@ -163,7 +163,7 @@ public class PedroAutoBlue extends OpMode {
 
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(128))
+                ).setConstantHeadingInterpolation(Math.toRadians(122))
 
                 .build();
 
