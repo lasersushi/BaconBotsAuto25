@@ -276,7 +276,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 8:
                 if (!follower.isBusy()) {
-                    follower.followPath(GoPickup3);
+                    follower.followPath(GoPickup3,true);
                     IntakeMotor2.setPower(0);
                     ShooterMotor.setPower(-.2);
                     IntakeMotor1.setPower(-1);
