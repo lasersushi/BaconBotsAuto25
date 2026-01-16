@@ -179,7 +179,7 @@ public class PedroAutoBlue extends OpMode {
         switch (pathState) {
             //Starting pose
             case 0: {
-                ShooterMotor.setPower(.65);
+                ShooterMotor.setPower(.6);
                 follower.followPath(StartScore, true);
                 setPathState(20);
                 pathTimer.resetTimer();
