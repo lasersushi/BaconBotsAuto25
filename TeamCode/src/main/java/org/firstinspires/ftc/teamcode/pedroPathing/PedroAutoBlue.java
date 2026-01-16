@@ -81,7 +81,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 96.000),
                                 //new Pose(45.134, 70.028),
-                                new Pose(44.000, 30.000)
+                                new Pose(50.000, 25.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(-92))
 
@@ -89,9 +89,9 @@ public class PedroAutoBlue extends OpMode {
 
         GrabPickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(44.000, 30.000),
+                                new Pose(50.000, 25.000),
 
-                                new Pose(20.000, 30.000)
+                                new Pose(25.000, 25.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -99,11 +99,11 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup1 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(20.000, 30.000),
+                                new Pose(25.000, 25.000),
                                 //new Pose(39.883, 74.413),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(143))
+                ).setConstantHeadingInterpolation(Math.toRadians(178))
 
                 .build();
 
@@ -121,7 +121,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(46.000, 50.000),
 
-                                new Pose(20.000, 50.000)
+                                new Pose(25.000, 50.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -129,11 +129,11 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup2 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(20.000, 50.000),
+                                new Pose(25.000, 50.000),
                                 //new Pose(39.4990477077817, 77.99525264739830),
                                 new Pose(46.000, 96.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(143))
+                ).setConstantHeadingInterpolation(Math.toRadians(135))
 
                 .build();
 
@@ -151,7 +151,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(44.000, 79.000),
 
-                                new Pose(20.000, 79.000)
+                                new Pose(25.000, 79.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -159,7 +159,7 @@ public class PedroAutoBlue extends OpMode {
 
         ScorePickup3 = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(20.000, 79.000),
+                                new Pose(25.000, 79.000),
 
                                 new Pose(46.000, 96.000)
                         )
@@ -183,7 +183,7 @@ public class PedroAutoBlue extends OpMode {
         switch (pathState) {
             //Starting pose
             case 0: {
-                ShooterMotor.setPower(.6);
+                ShooterMotor.setPower(.635);
                 follower.followPath(StartScore, true);
                 setPathState(20);
                 pathTimer.resetTimer();
@@ -191,14 +191,15 @@ public class PedroAutoBlue extends OpMode {
             break;
             case 20:
                 if (!follower.isBusy()) {
-                    if (pathTimer.getElapsedTimeSeconds() > 1 && pathTimer.getElapsedTimeSeconds() < 2) {
+                    if (pathTimer.getElapsedTimeSeconds() > 3 && pathTimer.getElapsedTimeSeconds() < 4) {
                         IntakeMotor2.setPower(-1);
                     }
-                    if (pathTimer.getElapsedTimeSeconds() > 4 && pathTimer.getElapsedTimeSeconds() < 6) {
+                    if (pathTimer.getElapsedTimeSeconds() > 6 && pathTimer.getElapsedTimeSeconds() < 7) {
                         IntakeMotor2.setPower(-1);
                         IntakeMotor1.setPower(-1);
                     }
                     if (pathTimer.getElapsedTimeSeconds() > 6.5) {
+                        IntakeMotor2.setPower(0);
                         setPathState(2);
                     }
                 }
@@ -217,10 +218,9 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 4:
                 if (!follower.isBusy()) {
-                    IntakeMotor1.setPower(0);
-                    ShooterMotor.setPower(.6);
+                    ShooterMotor.setPower(.78);
                     follower.followPath(ScorePickup1, true);
-                    follower.setHeading(133);
+                    IntakeMotor1.setPower(0);
                     setPathState(21);
                     pathTimer.resetTimer();
                 }
@@ -236,7 +236,10 @@ public class PedroAutoBlue extends OpMode {
                         IntakeMotor1.setPower(-1);
                     }
                     if (pathTimer.getElapsedTimeSeconds() > 6.5) {
-                        setPathState(5);
+                        ShooterMotor.setPower(0);
+                        IntakeMotor1.setPower(0);
+                        IntakeMotor2.setPower(0);
+                        setPathState(-1);
                     }
                 }
                 break;
@@ -257,7 +260,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 7:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.6);
+                    ShooterMotor.setPower(.635);
                     IntakeMotor1.setPower(0);
                     follower.followPath(ScorePickup2, true);
                     follower.setHeading(123);
@@ -297,7 +300,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 10:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.6);
+                    ShooterMotor.setPower(.635);
                     IntakeMotor1.setPower(0);
                     follower.followPath(ScorePickup3, true);
                     follower.setHeading(113);
