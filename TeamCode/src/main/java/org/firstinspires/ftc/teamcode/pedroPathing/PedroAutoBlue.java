@@ -49,7 +49,7 @@ public class PedroAutoBlue extends OpMode {
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(new Pose(22,122));
-        follower.setHeading(Math.toRadians(143));
+        follower.setHeading(Math.toRadians(135));
         buildPaths();
     }
 
