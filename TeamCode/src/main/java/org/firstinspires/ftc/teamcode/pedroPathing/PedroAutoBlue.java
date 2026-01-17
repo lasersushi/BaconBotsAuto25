@@ -169,11 +169,11 @@ public class PedroAutoBlue extends OpMode {
 
         End = follower.pathBuilder().addPath(
                         new BezierLine(
-                                new Pose(46.000, 96.000),
+                                new Pose(33, 96.000),
 
-                                new Pose(60.000, 130.000)
+                                new Pose(30.000, 112.000)
                         )
-                ).setConstantHeadingInterpolation(Math.toRadians(70))
+                ).setConstantHeadingInterpolation(Math.toRadians(178))
 
                 .build();
     }
@@ -239,7 +239,7 @@ public class PedroAutoBlue extends OpMode {
                         ShooterMotor.setPower(0);
                         IntakeMotor1.setPower(0);
                         IntakeMotor2.setPower(0);
-                        setPathState(-1);
+                        setPathState(12);
                     }
                 }
                 break;
