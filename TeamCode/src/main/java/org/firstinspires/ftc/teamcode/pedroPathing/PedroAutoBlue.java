@@ -91,7 +91,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(50.000, 25.000),
 
-                                new Pose(25.000, 25.000)
+                                new Pose(30.000, 25.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(0))
 
@@ -101,7 +101,7 @@ public class PedroAutoBlue extends OpMode {
                         new BezierLine(
                                 new Pose(25.000, 25.000),
                                 //new Pose(39.883, 74.413),
-                                new Pose(46.000, 96.000)
+                                new Pose(33.000, 96.000)
                         )
                 ).setConstantHeadingInterpolation(Math.toRadians(178))
 
@@ -183,7 +183,7 @@ public class PedroAutoBlue extends OpMode {
         switch (pathState) {
             //Starting pose
             case 0: {
-                ShooterMotor.setPower(.635);
+                ShooterMotor.setPower(.59);
                 follower.followPath(StartScore, true);
                 setPathState(20);
                 pathTimer.resetTimer();
@@ -218,10 +218,10 @@ public class PedroAutoBlue extends OpMode {
                 break;
             case 4:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.775);
+                    ShooterMotor.setPower(.66);
                     follower.followPath(ScorePickup1, true);
-                    IntakeMotor1.setPower(0);
                     setPathState(21);
+                    IntakeMotor1.setPower(0);
                     pathTimer.resetTimer();
                 }
                 break;
@@ -260,7 +260,7 @@ public class PedroAutoBlue extends OpMode {
 
             case 7:
                 if (!follower.isBusy()) {
-                    ShooterMotor.setPower(.635);
+                    ShooterMotor.setPower(.6);
                     IntakeMotor1.setPower(0);
                     follower.followPath(ScorePickup2, true);
                     follower.setHeading(123);
