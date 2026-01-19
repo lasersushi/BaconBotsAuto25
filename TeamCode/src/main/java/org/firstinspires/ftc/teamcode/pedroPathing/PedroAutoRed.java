@@ -19,7 +19,7 @@ import org.opencv.core.Mat;
 
 /// MESSAGE FOR BARON: Is all of this right?
 
-@Autonomous(name = "PedroAutoRed", group = "Auto")
+@Autonomous(name = "PedroAutoFar", group = "Auto")
 public class PedroAutoRed extends OpMode {
     public DcMotorSimple ShooterMotor;
     public DcMotorSimple IntakeMotor1;
