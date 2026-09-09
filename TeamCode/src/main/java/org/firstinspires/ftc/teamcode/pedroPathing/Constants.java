@@ -30,7 +30,6 @@ public class Constants {
                 .driveEncoderLocalizer(localizerConstants)
                 .pathConstraints(pathConstraints)
                 .mecanumDrivetrain(driveConstants)
-
                 .build();
     }
     public static MecanumConstants driveConstants = new MecanumConstants()
